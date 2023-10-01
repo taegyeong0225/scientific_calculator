@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class MainFrame extends javax.swing.JFrame {
     String screenTemp = ""; // 현재 화면에 보이는 문자
     String strResult = "";
-    String operator = "";
+    String strOperator = "";
     double tempNum = 0;   // 화면에 보이는 문자를 실수로 변환한 것
     double calResult = 0; // 연산 결과
     private String strMemory = "";
@@ -25,7 +25,7 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         setTitle("공학용 계산기");
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -151,6 +151,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         resultField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        resultField.setText("0");
         resultField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resultFieldActionPerformed(evt);
@@ -968,11 +969,21 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btnCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCEActionPerformed
-        // TODO add your handling code here:
+        // Clear Entry : 바로 직전 입력한 값만 지움
+        screenTemp="";
+        
+        resultField.setText(screenTemp);
     }//GEN-LAST:event_btnCEActionPerformed
 
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
-        // TODO add your handling code here:
+        // Clear : 모두 지움
+        calResult = 0;
+        tempNum = 0;
+        strResult = "";
+        screenTemp = "";
+        strOperator = "";
+        
+        resultField.setText("0");
     }//GEN-LAST:event_btnCActionPerformed
 
     private void btnBackspaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackspaceActionPerformed
@@ -983,11 +994,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackspaceActionPerformed
 
     private void btnStaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_btnStaActionPerformed
 
     private void btnPMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPMActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_btnPMActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
@@ -1033,11 +1044,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusActionPerformed
         
-        tempNum = Double.valueOf(screenTemp); // 눌린 값을 실수형으로 변환
+        tempNum = Double.valueOf(screenTemp); // 화면에 보이는 값을 실수형으로 변환
         
         // * 연산기호를 두 번 누르는 걸 방지할 코드 필요 
         
-        // 결과가 초기값(0)이면 계산한 적이 없는 것,
+        // 결과가 초기값(0)이면 계산한 적이 없는 것, 
         // 결과에 스크린에 있는 값을 실수로 형변환한 tempNum 입력
         if(calResult == 0){
             calResult = tempNum;
@@ -1050,7 +1061,7 @@ public class MainFrame extends javax.swing.JFrame {
             
         tempNum = 0;
         screenTemp = "";
-        operator = "+";                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+        strOperator = "+";                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     }//GEN-LAST:event_btnPlusActionPerformed
 
     private void btnMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinActionPerformed
@@ -1072,7 +1083,7 @@ public class MainFrame extends javax.swing.JFrame {
             
         tempNum = 0;
         screenTemp = "";
-        operator = "-";    
+        strOperator = "-";    
     }//GEN-LAST:event_btnMinActionPerformed
 
     private void btnNotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotActionPerformed
@@ -1084,15 +1095,49 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNotActionPerformed
 
     private void btnLshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLshActionPerformed
-        // TODO add your handling code here:
+        tempNum = Double.valueOf(screenTemp);
+        
+        if(calResult == 0) 
+            calResult = tempNum;
+        else
+            calResult = (int)tempNum << (int)calResult;
+        
+        strResult = String.valueOf(calResult);
+        resultField.setText(strResult);
+        
+        tempNum = 0;
+        screenTemp = "";
+        strOperator = "<";
     }//GEN-LAST:event_btnLshActionPerformed
 
     private void btnXorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXorActionPerformed
-        // TODO add your handling code here:
+        tempNum = Double.valueOf(screenTemp);
+        
+        if(calResult == 0)
+            calResult = tempNum;
+        else 
+            calResult = (int)tempNum ^ (int) calResult;
+        
+        strResult = String.valueOf(calResult);
+        
+        tempNum = 0;
+        screenTemp = "";
+        strOperator = "^";
     }//GEN-LAST:event_btnXorActionPerformed
 
     private void btnOrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrActionPerformed
-        // TODO add your handling code here:
+        tempNum = Double.valueOf(screenTemp);
+        
+        if(calResult == 0)
+            calResult = tempNum;
+        else 
+            calResult = (int)tempNum | (int) calResult;
+        
+        strResult = String.valueOf(calResult);
+        
+        tempNum = 0;
+        screenTemp = "";
+        strOperator = "|";
     }//GEN-LAST:event_btnOrActionPerformed
 
     private void btnMulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMulActionPerformed
@@ -1113,14 +1158,12 @@ public class MainFrame extends javax.swing.JFrame {
             
         tempNum = 0;
         screenTemp = "";
-        operator = "*";    
+        strOperator = "*";    
     }//GEN-LAST:event_btnMulActionPerformed
 
     private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
         
         tempNum = Double.valueOf(screenTemp); // 눌린 값을 실수형으로 변환
-        
-        // * 연산기호를 두 번 누르는 걸 방지할 코드 필요 
         
         // 결과가 초기값(0)이면 계산한 적이 없는 것,
         // 결과에 스크린에 있는 값을 실수로 형변환한 tempNum 입력
@@ -1134,7 +1177,7 @@ public class MainFrame extends javax.swing.JFrame {
             
         tempNum = 0;
         screenTemp = "";
-        operator = "/";     
+        strOperator = "/";     
     }//GEN-LAST:event_btnDivActionPerformed
 
     private void btnAndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndActionPerformed
@@ -1158,14 +1201,26 @@ public class MainFrame extends javax.swing.JFrame {
             
             tempNum = 0; // 현재숫자 초기화
             strResult = ""; // 화면에 띄워주는 결과값 초기화
-            operator = "&"; // 연산자는 +
+            strOperator = "&"; // 연산자는 +
         }
         
     }//GEN-LAST:event_btnAndActionPerformed
 
     private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
+        tempNum = Double.valueOf(screenTemp);
         
+        if(calResult == 0)
+            calResult = tempNum;
+        else
+            calResult %= tempNum;
         
+        strResult = String.valueOf(calResult);
+        
+        resultField.setText(strResult);
+        
+        tempNum = 0;
+        screenTemp = "";
+        strOperator = "%";
     }//GEN-LAST:event_btnModActionPerformed
 
     private void btnCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommaActionPerformed
@@ -1282,7 +1337,7 @@ public class MainFrame extends javax.swing.JFrame {
             startNum *= calResult;
             calResult--;
         }
-        resultField.setText(Integer.toString((int) calResult));
+        resultField.setText(Integer.toString((int) startNum));
         } catch(NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "정수 값의 팩토리얼 계산만 가능합니다", "계산 불가", JOptionPane.ERROR_MESSAGE); 
         }
@@ -1385,42 +1440,24 @@ public class MainFrame extends javax.swing.JFrame {
         // 계산 결과 도출
         tempNum = Double.valueOf(strResult);
         
-        switch (operator) {
-            case "+":
-                calResult += tempNum;
-                break;
-            case "-":
-                calResult -= tempNum;
-                break;
-            case "*":
-                calResult *= tempNum;
-                break;
-            case "/":
-                calResult /= tempNum;
-                break;   
-            case "%":
-                calResult %= tempNum;
-                break;
-            case "^":
-                calResult = (int)tempNum ^ (int)calResult;
-                break;
-            case "&":
-                calResult = (int)tempNum & (int)calResult;
-                break;
-            case "|":
-                calResult = (int)tempNum | (int)calResult;
-                break;
-            case "<":
-                calResult = (int)tempNum << (int)calResult;
-                break;    
-            default:
-                break;
+        switch (strOperator) {
+            case "+" -> calResult += tempNum;
+            case "-" -> calResult -= tempNum;
+            case "*" -> calResult *= tempNum;
+            case "/" -> calResult /= tempNum;
+            case "%" -> calResult %= tempNum;
+            case "^" -> calResult = (int)tempNum ^ (int)calResult;
+            case "&" -> calResult = (int)tempNum & (int)calResult;
+            case "|" -> calResult = (int)tempNum | (int)calResult;
+            case "<" -> calResult = (int)tempNum << (int)calResult;
+            default -> {
+            }
         }
         
         strResult = String.valueOf(calResult);
         
         resultField.setText(strResult);
-        operator = "";
+        strOperator = "";
     }//GEN-LAST:event_btnResultActionPerformed
 
     private void resultFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultFieldActionPerformed
