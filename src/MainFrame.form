@@ -4,6 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="mathGroup">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -38,11 +40,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Sta56" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="btnDat" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="Sta59" alignment="1" min="-2" pref="65" max="-2" attributes="0"/>
-                                      <Component id="Sta57" alignment="1" min="-2" pref="65" max="-2" attributes="0"/>
-                                      <Component id="Sta58" alignment="1" min="-2" pref="65" max="-2" attributes="0"/>
+                                      <Component id="btnAve" alignment="1" min="-2" pref="65" max="-2" attributes="0"/>
+                                      <Component id="btnS" alignment="1" min="-2" pref="65" max="-2" attributes="0"/>
+                                      <Component id="btnSum" alignment="1" min="-2" pref="65" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="btnSta" min="-2" pref="65" max="-2" attributes="0"/>
                               </Group>
@@ -66,14 +68,14 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="Sta46" min="-2" pref="65" max="-2" attributes="0"/>
+                                                  <Component id="btnLeft" min="-2" pref="65" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                                  <Component id="Sta45" min="-2" pref="65" max="-2" attributes="0"/>
+                                                  <Component id="btnRight" min="-2" pref="65" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="Sta42" min="-2" pref="65" max="-2" attributes="0"/>
+                                                  <Component id="btnExp" min="-2" pref="65" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                                  <Component id="btnIn" min="-2" pref="65" max="-2" attributes="0"/>
+                                                  <Component id="btnLn" min="-2" pref="65" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
@@ -114,26 +116,26 @@
                               <Component id="rbtnBin" min="-2" pref="83" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jCheckBox1" min="-2" pref="124" max="-2" attributes="0"/>
+                              <Component id="cboxLnv" min="-2" pref="124" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                              <Component id="cboxHyp" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="25" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="BtnOne" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="btnA" min="-2" pref="65" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="BtnTwo" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="btnB" min="-2" pref="65" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="BtnThree" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="btnC_" min="-2" pref="65" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="Sta30" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="btnD" min="-2" pref="65" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="Sta32" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="btnE" min="-2" pref="65" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="Sta31" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="btnF" min="-2" pref="65" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -224,11 +226,11 @@
                               <Component id="btnC" min="-2" pref="112" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jRadioButton5" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="rbtnDegrees" min="-2" pref="112" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                              <Component id="jRadioButton7" min="-2" pref="133" max="-2" attributes="0"/>
+                              <Component id="btnRadians" min="-2" pref="133" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="jRadioButton6" min="-2" pref="128" max="-2" attributes="0"/>
+                              <Component id="rbtnGrads" min="-2" pref="128" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -260,15 +262,15 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cboxLnv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cboxHyp" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jRadioButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbtnDegrees" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRadians" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbtnGrads" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -283,13 +285,13 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnSta" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="Sta59" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnAve" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="Sta58" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnSum" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="Sta57" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnS" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="Sta56" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnDat" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -347,28 +349,28 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="BtnThree" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="BtnTwo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="BtnOne" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnC_" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnB" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnA" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="Sta31" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="Sta32" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="Sta30" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnF" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnE" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnD" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="Sta45" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="Sta46" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btnRight" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btnLeft" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="btnFE" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnDms" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="Sta42" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btnIn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btnExp" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btnLn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -403,7 +405,7 @@
                       <Component id="btnPi" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -504,20 +506,38 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackspaceActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+    <Component class="javax.swing.JRadioButton" name="rbtnDegrees">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="mathGroup"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Degrees"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnDegreesActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton6">
+    <Component class="javax.swing.JRadioButton" name="rbtnGrads">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="mathGroup"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Grads"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnGradsActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton7">
+    <Component class="javax.swing.JRadioButton" name="btnRadians">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="mathGroup"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Radians"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRadiansActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSta">
       <Properties>
@@ -838,7 +858,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCommaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Sta30">
+    <Component class="javax.swing.JButton" name="btnD">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -846,10 +866,10 @@
         <Property name="text" type="java.lang.String" value="D"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Sta30ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Sta31">
+    <Component class="javax.swing.JButton" name="btnF">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -857,10 +877,10 @@
         <Property name="text" type="java.lang.String" value="F"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Sta31ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Sta32">
+    <Component class="javax.swing.JButton" name="btnE">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -868,10 +888,10 @@
         <Property name="text" type="java.lang.String" value="E"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Sta32ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="BtnOne">
+    <Component class="javax.swing.JButton" name="btnA">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -879,10 +899,10 @@
         <Property name="text" type="java.lang.String" value="A"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnOneActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="BtnThree">
+    <Component class="javax.swing.JButton" name="btnC_">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -890,10 +910,10 @@
         <Property name="text" type="java.lang.String" value="C"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnThreeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnC_ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="BtnTwo">
+    <Component class="javax.swing.JButton" name="btnB">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -901,7 +921,7 @@
         <Property name="text" type="java.lang.String" value="B"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnTwoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnX3">
@@ -974,7 +994,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnIn">
+    <Component class="javax.swing.JButton" name="btnLn">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="e6" green="e9" red="eb" type="rgb"/>
@@ -985,10 +1005,10 @@
         <Property name="text" type="java.lang.String" value="In"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Sta42">
+    <Component class="javax.swing.JButton" name="btnExp">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="e6" green="e9" red="eb" type="rgb"/>
@@ -999,7 +1019,7 @@
         <Property name="text" type="java.lang.String" value="Exp"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Sta42ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExpActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDms">
@@ -1030,7 +1050,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFEActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Sta45">
+    <Component class="javax.swing.JButton" name="btnRight">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="e6" green="e9" red="eb" type="rgb"/>
@@ -1042,10 +1062,10 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Sta45ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRightActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Sta46">
+    <Component class="javax.swing.JButton" name="btnLeft">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="e6" green="e9" red="eb" type="rgb"/>
@@ -1056,7 +1076,7 @@
         <Property name="text" type="java.lang.String" value="("/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Sta46ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLeftActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnFacto">
@@ -1185,7 +1205,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMRActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Sta56">
+    <Component class="javax.swing.JButton" name="btnDat">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -1193,10 +1213,10 @@
         <Property name="text" type="java.lang.String" value="Dat"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Sta56ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDatActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Sta57">
+    <Component class="javax.swing.JButton" name="btnS">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -1204,10 +1224,10 @@
         <Property name="text" type="java.lang.String" value="s"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Sta57ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Sta58">
+    <Component class="javax.swing.JButton" name="btnSum">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -1215,10 +1235,10 @@
         <Property name="text" type="java.lang.String" value="Sum"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Sta58ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSumActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Sta59">
+    <Component class="javax.swing.JButton" name="btnAve">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -1226,7 +1246,7 @@
         <Property name="text" type="java.lang.String" value="Ave"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Sta59ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAveActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnInt">
@@ -1257,12 +1277,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResultActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+    <Component class="javax.swing.JCheckBox" name="cboxLnv">
       <Properties>
         <Property name="text" type="java.lang.String" value="Inv"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+    <Component class="javax.swing.JCheckBox" name="cboxHyp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Hyp"/>
       </Properties>

@@ -16,7 +16,8 @@ public class MainFrame extends javax.swing.JFrame {
     String strOperator = "";
     double tempNum = 0;   // 화면에 보이는 문자를 실수로 변환한 것
     double calResult = 0; // 연산 결과
-    private String strMemory = "";
+    String strMemory = "";
+    String angel = ""; // 각도 기호를 담을 변수
     
     /**
      * Creates new form MainFrame
@@ -36,6 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup2 = new javax.swing.ButtonGroup();
+        mathGroup = new javax.swing.ButtonGroup();
         rbtnHex = new javax.swing.JRadioButton();
         rbtnDec = new javax.swing.JRadioButton();
         rbtnOct = new javax.swing.JRadioButton();
@@ -44,9 +46,9 @@ public class MainFrame extends javax.swing.JFrame {
         resultField = new javax.swing.JTextField();
         btnC = new javax.swing.JButton();
         btnBackspace = new javax.swing.JButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        rbtnDegrees = new javax.swing.JRadioButton();
+        rbtnGrads = new javax.swing.JRadioButton();
+        btnRadians = new javax.swing.JRadioButton();
         btnSta = new javax.swing.JButton();
         btnPM = new javax.swing.JButton();
         btn0 = new javax.swing.JButton();
@@ -70,23 +72,23 @@ public class MainFrame extends javax.swing.JFrame {
         btnAnd = new javax.swing.JButton();
         btnMod = new javax.swing.JButton();
         btnComma = new javax.swing.JButton();
-        Sta30 = new javax.swing.JButton();
-        Sta31 = new javax.swing.JButton();
-        Sta32 = new javax.swing.JButton();
-        BtnOne = new javax.swing.JButton();
-        BtnThree = new javax.swing.JButton();
-        BtnTwo = new javax.swing.JButton();
+        btnD = new javax.swing.JButton();
+        btnF = new javax.swing.JButton();
+        btnE = new javax.swing.JButton();
+        btnA = new javax.swing.JButton();
+        btnC_ = new javax.swing.JButton();
+        btnB = new javax.swing.JButton();
         btnX3 = new javax.swing.JButton();
         btnCos = new javax.swing.JButton();
         btnSin = new javax.swing.JButton();
         btnLog = new javax.swing.JButton();
         btnX = new javax.swing.JButton();
-        btnIn = new javax.swing.JButton();
-        Sta42 = new javax.swing.JButton();
+        btnLn = new javax.swing.JButton();
+        btnExp = new javax.swing.JButton();
         btnDms = new javax.swing.JButton();
         btnFE = new javax.swing.JButton();
-        Sta45 = new javax.swing.JButton();
-        Sta46 = new javax.swing.JButton();
+        btnRight = new javax.swing.JButton();
+        btnLeft = new javax.swing.JButton();
         btnFacto = new javax.swing.JButton();
         btnTan = new javax.swing.JButton();
         btn1x = new javax.swing.JButton();
@@ -96,14 +98,14 @@ public class MainFrame extends javax.swing.JFrame {
         btnMS = new javax.swing.JButton();
         btnMC = new javax.swing.JButton();
         btnMR = new javax.swing.JButton();
-        Sta56 = new javax.swing.JButton();
-        Sta57 = new javax.swing.JButton();
-        Sta58 = new javax.swing.JButton();
-        Sta59 = new javax.swing.JButton();
+        btnDat = new javax.swing.JButton();
+        btnS = new javax.swing.JButton();
+        btnSum = new javax.swing.JButton();
+        btnAve = new javax.swing.JButton();
         btnInt = new javax.swing.JButton();
         btnResult = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        cboxLnv = new javax.swing.JCheckBox();
+        cboxHyp = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -176,11 +178,29 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton5.setText("Degrees");
+        mathGroup.add(rbtnDegrees);
+        rbtnDegrees.setText("Degrees");
+        rbtnDegrees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnDegreesActionPerformed(evt);
+            }
+        });
 
-        jRadioButton6.setText("Grads");
+        mathGroup.add(rbtnGrads);
+        rbtnGrads.setText("Grads");
+        rbtnGrads.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnGradsActionPerformed(evt);
+            }
+        });
 
-        jRadioButton7.setText("Radians");
+        mathGroup.add(btnRadians);
+        btnRadians.setText("Radians");
+        btnRadians.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRadiansActionPerformed(evt);
+            }
+        });
 
         btnSta.setBackground(new java.awt.Color(235, 233, 230));
         btnSta.setText("Sta");
@@ -388,51 +408,51 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        Sta30.setForeground(new java.awt.Color(153, 153, 153));
-        Sta30.setText("D");
-        Sta30.addActionListener(new java.awt.event.ActionListener() {
+        btnD.setForeground(new java.awt.Color(153, 153, 153));
+        btnD.setText("D");
+        btnD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sta30ActionPerformed(evt);
+                btnDActionPerformed(evt);
             }
         });
 
-        Sta31.setForeground(new java.awt.Color(153, 153, 153));
-        Sta31.setText("F");
-        Sta31.addActionListener(new java.awt.event.ActionListener() {
+        btnF.setForeground(new java.awt.Color(153, 153, 153));
+        btnF.setText("F");
+        btnF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sta31ActionPerformed(evt);
+                btnFActionPerformed(evt);
             }
         });
 
-        Sta32.setForeground(new java.awt.Color(153, 153, 153));
-        Sta32.setText("E");
-        Sta32.addActionListener(new java.awt.event.ActionListener() {
+        btnE.setForeground(new java.awt.Color(153, 153, 153));
+        btnE.setText("E");
+        btnE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sta32ActionPerformed(evt);
+                btnEActionPerformed(evt);
             }
         });
 
-        BtnOne.setForeground(new java.awt.Color(153, 153, 153));
-        BtnOne.setText("A");
-        BtnOne.addActionListener(new java.awt.event.ActionListener() {
+        btnA.setForeground(new java.awt.Color(153, 153, 153));
+        btnA.setText("A");
+        btnA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnOneActionPerformed(evt);
+                btnAActionPerformed(evt);
             }
         });
 
-        BtnThree.setForeground(new java.awt.Color(153, 153, 153));
-        BtnThree.setText("C");
-        BtnThree.addActionListener(new java.awt.event.ActionListener() {
+        btnC_.setForeground(new java.awt.Color(153, 153, 153));
+        btnC_.setText("C");
+        btnC_.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnThreeActionPerformed(evt);
+                btnC_ActionPerformed(evt);
             }
         });
 
-        BtnTwo.setForeground(new java.awt.Color(153, 153, 153));
-        BtnTwo.setText("B");
-        BtnTwo.addActionListener(new java.awt.event.ActionListener() {
+        btnB.setForeground(new java.awt.Color(153, 153, 153));
+        btnB.setText("B");
+        btnB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTwoActionPerformed(evt);
+                btnBActionPerformed(evt);
             }
         });
 
@@ -481,21 +501,21 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnIn.setBackground(new java.awt.Color(235, 233, 230));
-        btnIn.setForeground(new java.awt.Color(255, 51, 255));
-        btnIn.setText("In");
-        btnIn.addActionListener(new java.awt.event.ActionListener() {
+        btnLn.setBackground(new java.awt.Color(235, 233, 230));
+        btnLn.setForeground(new java.awt.Color(255, 51, 255));
+        btnLn.setText("In");
+        btnLn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInActionPerformed(evt);
+                btnLnActionPerformed(evt);
             }
         });
 
-        Sta42.setBackground(new java.awt.Color(235, 233, 230));
-        Sta42.setForeground(new java.awt.Color(255, 51, 255));
-        Sta42.setText("Exp");
-        Sta42.addActionListener(new java.awt.event.ActionListener() {
+        btnExp.setBackground(new java.awt.Color(235, 233, 230));
+        btnExp.setForeground(new java.awt.Color(255, 51, 255));
+        btnExp.setText("Exp");
+        btnExp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sta42ActionPerformed(evt);
+                btnExpActionPerformed(evt);
             }
         });
 
@@ -517,22 +537,22 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        Sta45.setBackground(new java.awt.Color(235, 233, 230));
-        Sta45.setForeground(new java.awt.Color(255, 51, 255));
-        Sta45.setText(")");
-        Sta45.setToolTipText("");
-        Sta45.addActionListener(new java.awt.event.ActionListener() {
+        btnRight.setBackground(new java.awt.Color(235, 233, 230));
+        btnRight.setForeground(new java.awt.Color(255, 51, 255));
+        btnRight.setText(")");
+        btnRight.setToolTipText("");
+        btnRight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sta45ActionPerformed(evt);
+                btnRightActionPerformed(evt);
             }
         });
 
-        Sta46.setBackground(new java.awt.Color(235, 233, 230));
-        Sta46.setForeground(new java.awt.Color(255, 51, 255));
-        Sta46.setText("(");
-        Sta46.addActionListener(new java.awt.event.ActionListener() {
+        btnLeft.setBackground(new java.awt.Color(235, 233, 230));
+        btnLeft.setForeground(new java.awt.Color(255, 51, 255));
+        btnLeft.setText("(");
+        btnLeft.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sta46ActionPerformed(evt);
+                btnLeftActionPerformed(evt);
             }
         });
 
@@ -617,35 +637,35 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        Sta56.setForeground(new java.awt.Color(153, 153, 153));
-        Sta56.setText("Dat");
-        Sta56.addActionListener(new java.awt.event.ActionListener() {
+        btnDat.setForeground(new java.awt.Color(153, 153, 153));
+        btnDat.setText("Dat");
+        btnDat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sta56ActionPerformed(evt);
+                btnDatActionPerformed(evt);
             }
         });
 
-        Sta57.setForeground(new java.awt.Color(153, 153, 153));
-        Sta57.setText("s");
-        Sta57.addActionListener(new java.awt.event.ActionListener() {
+        btnS.setForeground(new java.awt.Color(153, 153, 153));
+        btnS.setText("s");
+        btnS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sta57ActionPerformed(evt);
+                btnSActionPerformed(evt);
             }
         });
 
-        Sta58.setForeground(new java.awt.Color(153, 153, 153));
-        Sta58.setText("Sum");
-        Sta58.addActionListener(new java.awt.event.ActionListener() {
+        btnSum.setForeground(new java.awt.Color(153, 153, 153));
+        btnSum.setText("Sum");
+        btnSum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sta58ActionPerformed(evt);
+                btnSumActionPerformed(evt);
             }
         });
 
-        Sta59.setForeground(new java.awt.Color(153, 153, 153));
-        Sta59.setText("Ave");
-        Sta59.addActionListener(new java.awt.event.ActionListener() {
+        btnAve.setForeground(new java.awt.Color(153, 153, 153));
+        btnAve.setText("Ave");
+        btnAve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sta59ActionPerformed(evt);
+                btnAveActionPerformed(evt);
             }
         });
 
@@ -667,9 +687,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setText("Inv");
+        cboxLnv.setText("Inv");
 
-        jCheckBox2.setText("Hyp");
+        cboxHyp.setText("Hyp");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -682,11 +702,11 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Sta56, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnDat, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(Sta59, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Sta57, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Sta58, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnAve, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnS, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnSum, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(btnSta, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -706,13 +726,13 @@ public class MainFrame extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(Sta46, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(25, 25, 25)
-                                                    .addComponent(Sta45, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(Sta42, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btnExp, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(25, 25, 25)
-                                                    .addComponent(btnIn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(btnLn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(btnX, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -740,24 +760,24 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(rbtnBin, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cboxLnv, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckBox2)))
+                                .addComponent(cboxHyp)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(BtnOne, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnA, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(25, 25, 25)
-                                    .addComponent(BtnTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnB, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(25, 25, 25)
-                                    .addComponent(BtnThree, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnC_, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(25, 25, 25)
-                                    .addComponent(Sta30, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnD, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(25, 25, 25)
-                                    .addComponent(Sta32, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnE, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(25, 25, 25)
-                                    .addComponent(Sta31, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnF, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
@@ -823,11 +843,11 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnC, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(rbtnDegrees, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(47, 47, 47)
-                                .addComponent(jRadioButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnRadians, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
-                                .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(rbtnGrads, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(37, 37, 37))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(17, 17, 17)
@@ -851,13 +871,13 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(rbtnDec))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jCheckBox1)
-                                    .addComponent(jCheckBox2)))
+                                    .addComponent(cboxLnv)
+                                    .addComponent(cboxHyp)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jRadioButton5)
-                                    .addComponent(jRadioButton7)
-                                    .addComponent(jRadioButton6))
+                                    .addComponent(rbtnDegrees)
+                                    .addComponent(btnRadians)
+                                    .addComponent(rbtnGrads))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnCE, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -868,13 +888,13 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnSta, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Sta59, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAve, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Sta58, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSum, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Sta57, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnS, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(Sta56, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnDat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -920,23 +940,23 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(BtnThree, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(BtnTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(BtnOne, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnC_, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnB, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(Sta31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Sta32, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Sta30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(btnF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnE, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Sta45, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Sta46, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnFE, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnDms, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Sta42, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnIn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnExp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnLn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnLog, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -962,7 +982,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(btnMP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnPi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -987,18 +1007,32 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCActionPerformed
 
     private void btnBackspaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackspaceActionPerformed
-        
-        int delIndex = screenTemp.length()-1;
-        screenTemp = screenTemp.substring(0 ,delIndex);
-        resultField.setText(screenTemp);
+        // backspace : 마지막 내용 삭제 - 0번째 인덱스(처음)부터 길이보다 하나 짧게 잘라내기
+        String data = screenTemp.substring(0, screenTemp.length()-1);
+        // 화면에 띄울 data 설정
+        screenTemp = data;
+        resultField.setText(screenTemp); // 화면에 출력
     }//GEN-LAST:event_btnBackspaceActionPerformed
 
     private void btnStaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaActionPerformed
+      // Sta : 현재 계산 결과를 저장, 다른 계산을 이어서 수행할 수 있도록 함
       
+      strMemory = strResult;
+      
+      screenTemp = "";
+      resultField.setText("");
     }//GEN-LAST:event_btnStaActionPerformed
 
     private void btnPMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPMActionPerformed
-       
+                
+        try {
+            tempNum = Double.parseDouble(screenTemp);
+            tempNum = -tempNum;
+            
+            screenTemp = String.valueOf(tempNum);
+            resultField.setText(screenTemp);
+        } catch(NumberFormatException e) {
+        }
     }//GEN-LAST:event_btnPMActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
@@ -1046,22 +1080,26 @@ public class MainFrame extends javax.swing.JFrame {
         
         tempNum = Double.valueOf(screenTemp); // 화면에 보이는 값을 실수형으로 변환
         
-        // * 연산기호를 두 번 누르는 걸 방지할 코드 필요 
+        // 연산기호를 두 번 누르는 걸 방지할 코드 필요 ?
         
         // 결과가 초기값(0)이면 계산한 적이 없는 것, 
         // 결과에 스크린에 있는 값을 실수로 형변환한 tempNum 입력
+        // 계산한 적이 있다면 그 값에 현재 숫자를 더한다.
+        // => 첫번째 피연산자 완성 
         if(calResult == 0){
             calResult = tempNum;
         } else {
             calResult += tempNum;
         }
             
+        // 첫번째 피연산자를 strResult에 저장
         strResult = String.valueOf(calResult);
+        // 화면에 결과 출력
         resultField.setText(strResult);
-            
-        tempNum = 0;
-        screenTemp = "";
-        strOperator = "+";                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+           
+        tempNum = 0; // 현재 숫자 초기화
+        screenTemp = ""; // 화면에 띄울 값 초기화
+        strOperator = "+"; // 연산 기호 저장                                                                                                                                                                                                                                                                                                                                                                                                                                  
     }//GEN-LAST:event_btnPlusActionPerformed
 
     private void btnMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinActionPerformed
@@ -1087,7 +1125,6 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMinActionPerformed
 
     private void btnNotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotActionPerformed
-        
         screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
         if(calResult!=0) calResult= ~(int)calResult;
@@ -1095,13 +1132,17 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNotActionPerformed
 
     private void btnLshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLshActionPerformed
+        // Lsh : 왼쪽으로 쉬프트 하는 버튼
         tempNum = Double.valueOf(screenTemp);
         
         if(calResult == 0) 
             calResult = tempNum;
         else
-            calResult = (int)tempNum << (int)calResult;
-        
+            if(cboxLnv.isSelected())
+                calResult = (int)tempNum >> (int)calResult;
+            else
+                calResult = (int)tempNum << (int)calResult;
+                
         strResult = String.valueOf(calResult);
         resultField.setText(strResult);
         
@@ -1224,34 +1265,33 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModActionPerformed
 
     private void btnCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommaActionPerformed
-        
         screenTemp += ".";
         resultField.setText(screenTemp);
     }//GEN-LAST:event_btnCommaActionPerformed
 
-    private void Sta30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sta30ActionPerformed
+    private void btnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Sta30ActionPerformed
+    }//GEN-LAST:event_btnDActionPerformed
 
-    private void Sta31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sta31ActionPerformed
+    private void btnFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Sta31ActionPerformed
+    }//GEN-LAST:event_btnFActionPerformed
 
-    private void Sta32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sta32ActionPerformed
+    private void btnEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Sta32ActionPerformed
+    }//GEN-LAST:event_btnEActionPerformed
 
-    private void BtnOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOneActionPerformed
+    private void btnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnOneActionPerformed
+    }//GEN-LAST:event_btnAActionPerformed
 
-    private void BtnThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnThreeActionPerformed
+    private void btnC_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC_ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnThreeActionPerformed
+    }//GEN-LAST:event_btnC_ActionPerformed
 
-    private void BtnTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTwoActionPerformed
+    private void btnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnTwoActionPerformed
+    }//GEN-LAST:event_btnBActionPerformed
 
     private void btnX3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnX3ActionPerformed
         
@@ -1262,24 +1302,33 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnX3ActionPerformed
 
     private void btnCosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCosActionPerformed
+     
         calResult = Double.parseDouble(screenTemp);
-        if(calResult!=0){
-            calResult = Math.cos(Math.toRadians(calResult));
-            resultField.setText(Double.toString(calResult));
+              
+        if(calResult!=0) {
+            if(cboxHyp.isSelected())
+                calResult = (Math.exp(calResult) + Math.exp(-calResult)) / 2.0;
+            else
+                calResult = Math.cos(Math.toRadians(calResult));
         }
+        resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnCosActionPerformed
 
     private void btnSinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSinActionPerformed
-        
+
         calResult = Double.parseDouble(screenTemp);
-        if(calResult!=0){
-            calResult = Math.sin(Math.toRadians(calResult));
-            resultField.setText(Double.toString(calResult));
+        
+        if(calResult!=0){ 
+            if(cboxHyp.isSelected())
+                calResult = (Math.exp(calResult) - Math.exp(-calResult)) / 2.0;
+            else
+                calResult = Math.sin(Math.toRadians(calResult));
         }
+        resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnSinActionPerformed
 
     private void btnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogActionPerformed
-        
+        // Log : 상용로그 (밑이 10인 log 함수)
         screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
         if(calResult!=0) {
@@ -1289,42 +1338,61 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogActionPerformed
 
     private void btnXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXActionPerformed
-        
+        // x^y : 거듭제곱
         screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
         if(calResult!= 0)  calResult = Math.pow(calResult, tempNum);
         resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnXActionPerformed
 
-    private void btnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInActionPerformed
-        
+    private void btnLnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLnActionPerformed
+        // Ln : 자연로그
         screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
         if(calResult!=0) {
             calResult = Math.log(calResult);
             resultField.setText(Double.toString(calResult));
         }
-    }//GEN-LAST:event_btnInActionPerformed
+    }//GEN-LAST:event_btnLnActionPerformed
 
-    private void Sta42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sta42ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Sta42ActionPerformed
+    private void btnExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpActionPerformed
+        // Exp : 지수함수
+        screenTemp = resultField.getText();
+        calResult = Double.parseDouble(screenTemp);
+        
+        if(calResult!= 0){
+           calResult = Math.exp(calResult);
+           resultField.setText(Double.toString(calResult));
+        } 
+    }//GEN-LAST:event_btnExpActionPerformed
 
     private void btnDmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDmsActionPerformed
-        // TODO add your handling code here:
+        // dms : 도, 분, 초를 입력받음
+        // 구현 못 함
     }//GEN-LAST:event_btnDmsActionPerformed
 
     private void btnFEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFEActionPerformed
-        // TODO add your handling code here:
+        // F-E : 과학적 표기법으로 변환\
+        try {
+            calResult  = Double.parseDouble(screenTemp);
+        
+            String scienticStr = String.format("%.8E", calResult);
+            scienticStr = scienticStr.replaceFirst("\\.?0*E", "E");
+        
+            screenTemp = scienticStr;
+            resultField.setText(screenTemp);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "유효한 숫자를 입력하세요", "계산 불가", JOptionPane.ERROR_MESSAGE); 
+        }  
     }//GEN-LAST:event_btnFEActionPerformed
 
-    private void Sta45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sta45ActionPerformed
+    private void btnRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRightActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Sta45ActionPerformed
+    }//GEN-LAST:event_btnRightActionPerformed
 
-    private void Sta46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sta46ActionPerformed
+    private void btnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeftActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Sta46ActionPerformed
+    }//GEN-LAST:event_btnLeftActionPerformed
 
     private void btnFactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactoActionPerformed
         
@@ -1345,10 +1413,15 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnTanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTanActionPerformed
         calResult = Double.parseDouble(screenTemp);
-        if(calResult!=0){
-            calResult = Math.tan(Math.toRadians(calResult));
-            resultField.setText(Double.toString(calResult));
+        
+        if(calResult!=0){ 
+            if(cboxHyp.isSelected())
+                calResult = ((Math.exp(calResult) - Math.exp(-calResult)) / 2.0 )/ ((Math.exp(calResult) + Math.exp(-calResult)) / 2.0);
+            else
+                calResult = Math.tan(Math.toRadians(calResult));
         }
+        
+        resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnTanActionPerformed
 
     private void btn1xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1xActionPerformed
@@ -1381,51 +1454,52 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnX2ActionPerformed
 
     private void btnMPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMPActionPerformed
-        
+        // M+ : 저장된 메모리에 현재 값을 더함
         tempNum = Double.valueOf(screenTemp);
-        calResult = tempNum + Double.valueOf(strMemory);
+        Double mPlusResult = tempNum + Double.valueOf(strMemory);
         
-        strResult = String.valueOf(calResult);
-        screenTemp = strResult;
-        resultField.setText(strResult);
+        // 더한 값을 strMemory에 저장
+        strMemory = String.valueOf(mPlusResult);
+        resultField.setText(strMemory);
     }//GEN-LAST:event_btnMPActionPerformed
 
     private void btnPiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPiActionPerformed
-        
         calResult = Math.PI;
         resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnPiActionPerformed
 
     private void btnMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMSActionPerformed
+        // MS : memory save 계산기에 메모리 저장
         strMemory = screenTemp;
-        resultField.setText(strMemory);
     }//GEN-LAST:event_btnMSActionPerformed
 
     private void btnMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMCActionPerformed
+        // MC : memory clear 저장된 메모리 삭제
         strMemory = "";
         resultField.setText(strMemory);
     }//GEN-LAST:event_btnMCActionPerformed
 
     private void btnMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRActionPerformed
+        // MR : memory read 저장된 메모리 읽어옴 
         resultField.setText(strMemory);
         screenTemp = strMemory;
     }//GEN-LAST:event_btnMRActionPerformed
 
-    private void Sta56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sta56ActionPerformed
+    private void btnDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Sta56ActionPerformed
+    }//GEN-LAST:event_btnDatActionPerformed
 
-    private void Sta57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sta57ActionPerformed
+    private void btnSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Sta57ActionPerformed
+    }//GEN-LAST:event_btnSActionPerformed
 
-    private void Sta58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sta58ActionPerformed
+    private void btnSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Sta58ActionPerformed
+    }//GEN-LAST:event_btnSumActionPerformed
 
-    private void Sta59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sta59ActionPerformed
+    private void btnAveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Sta59ActionPerformed
+    }//GEN-LAST:event_btnAveActionPerformed
 
     private void btnIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntActionPerformed
         screenTemp = resultField.getText();
@@ -1437,31 +1511,38 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIntActionPerformed
 
     private void btnResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultActionPerformed
-        // 계산 결과 도출
-        tempNum = Double.valueOf(strResult);
+        // = 버튼 눌렀을 때 발생하는 이벤트
         
+        // 화면에 있는 두 번째 피연산자를 실수형으로 저장
+        tempNum = Double.valueOf(screenTemp);
+        
+        // 첫번째 피연산자(calResult)와 두 번째 피연산자 (tempNum)과의 연산
         switch (strOperator) {
             case "+" -> calResult += tempNum;
             case "-" -> calResult -= tempNum;
             case "*" -> calResult *= tempNum;
             case "/" -> calResult /= tempNum;
-            case "%" -> calResult %= tempNum;
-            case "^" -> calResult = (int)tempNum ^ (int)calResult;
-            case "&" -> calResult = (int)tempNum & (int)calResult;
-            case "|" -> calResult = (int)tempNum | (int)calResult;
-            case "<" -> calResult = (int)tempNum << (int)calResult;
+            case "%" -> calResult %= tempNum; // Mod
+            case "^" -> calResult = (int)tempNum ^ (int)calResult; // Xor
+            case "&" -> calResult = (int)tempNum & (int)calResult; // And
+            case "|" -> calResult = (int)tempNum | (int)calResult; // Or
+            case "<" -> calResult = (int)tempNum << (int)calResult; // Lsh
             default -> {
             }
+            
         }
         
+        // 연산 결과 저장
         strResult = String.valueOf(calResult);
         
+        // 연산 결과 출력
         resultField.setText(strResult);
+        // 연산 기호 초기화
         strOperator = "";
     }//GEN-LAST:event_btnResultActionPerformed
 
     private void resultFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultFieldActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_resultFieldActionPerformed
 
     private void rbtnDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDecActionPerformed
@@ -1482,7 +1563,8 @@ public class MainFrame extends javax.swing.JFrame {
         
         if(tempNum!=0){
             String strHex = Double.toHexString(tempNum);
-            resultField.setText(strHex);
+            strResult = strHex;
+            resultField.setText(strResult);
         }
     }//GEN-LAST:event_rbtnHexActionPerformed
 
@@ -1493,6 +1575,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         if(tempNum!=0){
             String strOct = Integer.toOctalString((int) tempNum);
+            strResult = strOct;
             resultField.setText(strResult);
         } 
     }//GEN-LAST:event_rbtnOctActionPerformed
@@ -1504,9 +1587,75 @@ public class MainFrame extends javax.swing.JFrame {
         
         if(tempNum!=0){
             String strBin = Integer.toBinaryString((int)tempNum);
+            strResult = strBin;
             resultField.setText(strResult);
         }
     }//GEN-LAST:event_rbtnBinActionPerformed
+
+    private void rbtnDegreesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDegreesActionPerformed
+        // 각도 버튼
+        if("rad".equals(angel)) {
+            screenTemp = resultField.getText();
+            String data = screenTemp.substring(0, screenTemp.length()-1);
+            tempNum = Double.parseDouble(data);
+            
+            screenTemp = String.valueOf(tempNum * 180 / 3.14);
+        
+        } else if ("grad".equals(angel)) {
+            screenTemp = resultField.getText();
+            String data = screenTemp.substring(0, screenTemp.length()-1);
+            tempNum = Double.parseDouble(data);
+            
+            screenTemp = String.valueOf(tempNum * 0.9);
+        }
+        
+        screenTemp += "°";
+
+        resultField.setText(screenTemp);
+        angel = "deg";
+    }//GEN-LAST:event_rbtnDegreesActionPerformed
+
+    private void btnRadiansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRadiansActionPerformed
+       
+        if("deg".equals(angel)) {
+            screenTemp = resultField.getText();
+            String data = screenTemp.substring(0, screenTemp.length()-1);
+            tempNum = Double.parseDouble(data);
+            
+            screenTemp = String.valueOf(tempNum * 3.14 / 180);
+        
+        } else if ("grad".equals(angel)) {
+            screenTemp = resultField.getText();
+            tempNum = Double.parseDouble(screenTemp);
+            
+            screenTemp = String.valueOf(tempNum * 3.14 / 200);
+        }
+        
+        screenTemp += "rad";
+        resultField.setText(screenTemp);
+        angel = "rad";
+    }//GEN-LAST:event_btnRadiansActionPerformed
+
+    private void rbtnGradsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnGradsActionPerformed
+
+        if("deg".equals(angel)) {
+            screenTemp = resultField.getText();
+            String data = screenTemp.substring(0, screenTemp.length()-1);
+            tempNum = Double.parseDouble(data);
+            
+            screenTemp = String.valueOf(tempNum * 100 / 90);
+        
+        } else if ("rad".equals(angel)) {
+            screenTemp = resultField.getText();
+            tempNum = Double.parseDouble(screenTemp);
+            
+            screenTemp = String.valueOf(tempNum * 200 / 3.14);
+        }
+        
+        screenTemp += "grad";
+        resultField.setText(screenTemp);
+        angel = "grad";
+    }//GEN-LAST:event_rbtnGradsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1544,19 +1693,6 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnOne;
-    private javax.swing.JButton BtnThree;
-    private javax.swing.JButton BtnTwo;
-    private javax.swing.JButton Sta30;
-    private javax.swing.JButton Sta31;
-    private javax.swing.JButton Sta32;
-    private javax.swing.JButton Sta42;
-    private javax.swing.JButton Sta45;
-    private javax.swing.JButton Sta46;
-    private javax.swing.JButton Sta56;
-    private javax.swing.JButton Sta57;
-    private javax.swing.JButton Sta58;
-    private javax.swing.JButton Sta59;
     private javax.swing.JButton btn0;
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn1x;
@@ -1568,18 +1704,28 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn7;
     private javax.swing.JButton btn8;
     private javax.swing.JButton btn9;
+    private javax.swing.JButton btnA;
     private javax.swing.JButton btnAnd;
+    private javax.swing.JButton btnAve;
+    private javax.swing.JButton btnB;
     private javax.swing.JButton btnBackspace;
     private javax.swing.JButton btnC;
     private javax.swing.JButton btnCE;
+    private javax.swing.JButton btnC_;
     private javax.swing.JButton btnComma;
     private javax.swing.JButton btnCos;
+    private javax.swing.JButton btnD;
+    private javax.swing.JButton btnDat;
     private javax.swing.JButton btnDiv;
     private javax.swing.JButton btnDms;
+    private javax.swing.JButton btnE;
+    private javax.swing.JButton btnExp;
+    private javax.swing.JButton btnF;
     private javax.swing.JButton btnFE;
     private javax.swing.JButton btnFacto;
-    private javax.swing.JButton btnIn;
     private javax.swing.JButton btnInt;
+    private javax.swing.JButton btnLeft;
+    private javax.swing.JButton btnLn;
     private javax.swing.JButton btnLog;
     private javax.swing.JButton btnLsh;
     private javax.swing.JButton btnMC;
@@ -1594,22 +1740,26 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnPM;
     private javax.swing.JButton btnPi;
     private javax.swing.JButton btnPlus;
+    private javax.swing.JRadioButton btnRadians;
     private javax.swing.JButton btnResult;
+    private javax.swing.JButton btnRight;
+    private javax.swing.JButton btnS;
     private javax.swing.JButton btnSin;
     private javax.swing.JButton btnSta;
+    private javax.swing.JButton btnSum;
     private javax.swing.JButton btnTan;
     private javax.swing.JButton btnX;
     private javax.swing.JButton btnX2;
     private javax.swing.JButton btnX3;
     private javax.swing.JButton btnXor;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JCheckBox cboxHyp;
+    private javax.swing.JCheckBox cboxLnv;
+    private javax.swing.ButtonGroup mathGroup;
     private javax.swing.JRadioButton rbtnBin;
     private javax.swing.JRadioButton rbtnDec;
+    private javax.swing.JRadioButton rbtnDegrees;
+    private javax.swing.JRadioButton rbtnGrads;
     private javax.swing.JRadioButton rbtnHex;
     private javax.swing.JRadioButton rbtnOct;
     private javax.swing.JTextField resultField;
