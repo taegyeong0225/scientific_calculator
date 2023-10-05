@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class MainFrame extends javax.swing.JFrame {
     String screenTemp = ""; // 현재 화면에 보이는 문자
-    String strResult = "";
+    String strResult = ""; // 좀 없애도 되는 ... 필요없는 변수
     String strOperator = "";
     double tempNum = 0;   // 화면에 보이는 문자를 실수로 변환한 것
     double calResult = 0; // 연산 결과
@@ -780,34 +780,30 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(btnF, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(25, 25, 25)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(25, 25, 25)
-                                                    .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(25, 25, 25)
-                                                    .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(25, 25, 25)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(25, 25, 25)
-                                                    .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(btnPM, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(btnComma, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(25, 25, 25)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(25, 25, 25)
+                                                .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(25, 25, 25)
+                                                .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(25, 25, 25)
+                                                .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btnPM, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnComma, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGap(25, 25, 25)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
@@ -982,7 +978,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(btnMP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnPi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -1016,11 +1012,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnStaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaActionPerformed
       // Sta : 현재 계산 결과를 저장, 다른 계산을 이어서 수행할 수 있도록 함
-      
-      strMemory = strResult;
-      
-      screenTemp = "";
-      resultField.setText("");
+
     }//GEN-LAST:event_btnStaActionPerformed
 
     private void btnPMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPMActionPerformed
@@ -1032,6 +1024,7 @@ public class MainFrame extends javax.swing.JFrame {
             screenTemp = String.valueOf(tempNum);
             resultField.setText(screenTemp);
         } catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "유효한 숫자를 입력하세요", "계산 불가", JOptionPane.ERROR_MESSAGE); 
         }
     }//GEN-LAST:event_btnPMActionPerformed
 
@@ -1158,8 +1151,8 @@ public class MainFrame extends javax.swing.JFrame {
             calResult = tempNum;
         else 
             calResult = (int)tempNum ^ (int) calResult;
-        
-        strResult = String.valueOf(calResult);
+ 
+        resultField.setText(String.valueOf(calResult));
         
         tempNum = 0;
         screenTemp = "";
@@ -1173,8 +1166,8 @@ public class MainFrame extends javax.swing.JFrame {
             calResult = tempNum;
         else 
             calResult = (int)tempNum | (int) calResult;
-        
-        strResult = String.valueOf(calResult);
+
+        resultField.setText(String.valueOf(calResult));
         
         tempNum = 0;
         screenTemp = "";
@@ -1194,8 +1187,8 @@ public class MainFrame extends javax.swing.JFrame {
         } else {
             calResult *= tempNum;
         }    
-        strResult = String.valueOf(calResult);
-        resultField.setText(strResult);
+ 
+        resultField.setText(String.valueOf(calResult));
             
         tempNum = 0;
         screenTemp = "";
@@ -1213,8 +1206,8 @@ public class MainFrame extends javax.swing.JFrame {
         } else {
             calResult /= tempNum;
         }     
-        strResult = String.valueOf(calResult);
-        resultField.setText(strResult);
+
+        resultField.setText(String.valueOf(calResult));
             
         tempNum = 0;
         screenTemp = "";
@@ -1236,8 +1229,7 @@ public class MainFrame extends javax.swing.JFrame {
             calResult = (int)tempNum & (int)tempNum;
             
             // 문자로 변환 후 화면에 출력
-            strResult = String.valueOf(calResult);
-            resultField.setText(strResult);
+            resultField.setText(String.valueOf(calResult));
             
             
             tempNum = 0; // 현재숫자 초기화
@@ -1295,7 +1287,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnX3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnX3ActionPerformed
         
-        screenTemp = resultField.getText();
+        // screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
         if(calResult!= 0)  calResult = Math.pow(calResult, 3);
         resultField.setText(Double.toString(calResult));
@@ -1315,7 +1307,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCosActionPerformed
 
     private void btnSinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSinActionPerformed
-
+         
         calResult = Double.parseDouble(screenTemp);
         
         if(calResult!=0){ 
@@ -1339,10 +1331,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXActionPerformed
         // x^y : 거듭제곱
-        screenTemp = resultField.getText();
+        // screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
-        if(calResult!= 0)  calResult = Math.pow(calResult, tempNum);
+        // if(calResult!= 0)  calResult = Math.pow(calResult, tempNum);
         resultField.setText(Double.toString(calResult));
+        
+        tempNum = 0; // 현재 숫자 초기화
+        screenTemp = ""; // 화면에 띄울 값 초기화
+        strOperator = "x^y"; // 연산 기호 저장 
     }//GEN-LAST:event_btnXActionPerformed
 
     private void btnLnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLnActionPerformed
@@ -1357,7 +1353,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpActionPerformed
         // Exp : 지수함수
-        screenTemp = resultField.getText();
+        // screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
         
         if(calResult!= 0){
@@ -1374,9 +1370,9 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnFEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFEActionPerformed
         // F-E : 과학적 표기법으로 변환\
         try {
-            calResult  = Double.parseDouble(screenTemp);
+            tempNum  = Double.parseDouble(screenTemp);
         
-            String scienticStr = String.format("%.8E", calResult);
+            String scienticStr = String.format("%.8E", tempNum);
             scienticStr = scienticStr.replaceFirst("\\.?0*E", "E");
         
             screenTemp = scienticStr;
@@ -1396,7 +1392,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnFactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactoActionPerformed
         
-        screenTemp = resultField.getText();
+        // screenTemp = resultField.getText();
         calResult = Integer.parseInt(screenTemp);
         int startNum = 1;
 
@@ -1447,7 +1443,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnX2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnX2ActionPerformed
         
-        screenTemp = resultField.getText();
+        // screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
         if(calResult!= 0)  calResult = Math.pow(calResult, 2);
         resultField.setText(Double.toString(calResult));
@@ -1527,6 +1523,7 @@ public class MainFrame extends javax.swing.JFrame {
             case "&" -> calResult = (int)tempNum & (int)calResult; // And
             case "|" -> calResult = (int)tempNum | (int)calResult; // Or
             case "<" -> calResult = (int)tempNum << (int)calResult; // Lsh
+            case "x^y" -> calResult = Math.pow(calResult, tempNum);
             default -> {
             }
             
@@ -1547,63 +1544,67 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void rbtnDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDecActionPerformed
         
-        strResult = resultField.getText();
-        tempNum = Double.parseDouble(strResult);
+        screenTemp = resultField.getText();
         
-        if(tempNum!=0){
-            strResult = String.valueOf(tempNum);
-            resultField.setText(strResult);
-        }
+        
+        if (rbtnBin.isSelected()) calResult = Integer.parseInt(screenTemp, 2);
+        else if (rbtnOct.isSelected()) calResult = Integer.parseInt(screenTemp, 8);
+        else if (rbtnHex.isSelected()) calResult = Integer.parseInt(screenTemp, 16);
+        
+        screenTemp = Double.toString(calResult);
+        resultField.setText(screenTemp);
     }//GEN-LAST:event_rbtnDecActionPerformed
 
     private void rbtnHexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnHexActionPerformed
         
-        strResult = resultField.getText();
-        tempNum = Double.parseDouble(strResult);
+        // screenTemp = resultField.getText();
+        tempNum = Double.parseDouble(screenTemp);
         
         if(tempNum!=0){
             String strHex = Double.toHexString(tempNum);
-            strResult = strHex;
-            resultField.setText(strResult);
+            screenTemp = strHex;
+            resultField.setText(screenTemp);
         }
     }//GEN-LAST:event_rbtnHexActionPerformed
 
     private void rbtnOctActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnOctActionPerformed
         
-        strResult = resultField.getText();
-        tempNum = Double.parseDouble(strResult);
+        // screenTemp = resultField.getText();
+        tempNum = Double.parseDouble(screenTemp);
         
         if(tempNum!=0){
             String strOct = Integer.toOctalString((int) tempNum);
-            strResult = strOct;
-            resultField.setText(strResult);
+            screenTemp = strOct;    
         } 
+        resultField.setText(screenTemp);
+        rbtnOct.setSelected(false);
     }//GEN-LAST:event_rbtnOctActionPerformed
 
     private void rbtnBinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnBinActionPerformed
         
-        strResult = resultField.getText();
-        tempNum = Double.parseDouble(strResult);
+        // screenTemp = resultField.getText();
+        tempNum = Double.parseDouble(screenTemp);
         
         if(tempNum!=0){
             String strBin = Integer.toBinaryString((int)tempNum);
-            strResult = strBin;
-            resultField.setText(strResult);
+            screenTemp = strBin;
         }
+        resultField.setText(screenTemp);
+        rbtnBin.setSelected(false);
     }//GEN-LAST:event_rbtnBinActionPerformed
 
     private void rbtnDegreesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDegreesActionPerformed
         // 각도 버튼
         if("rad".equals(angel)) {
             screenTemp = resultField.getText();
-            String data = screenTemp.substring(0, screenTemp.length()-1);
+            String data = screenTemp.substring(0, screenTemp.length()-3);
             tempNum = Double.parseDouble(data);
             
             screenTemp = String.valueOf(tempNum * 180 / 3.14);
         
         } else if ("grad".equals(angel)) {
             screenTemp = resultField.getText();
-            String data = screenTemp.substring(0, screenTemp.length()-1);
+            String data = screenTemp.substring(0, screenTemp.length()-4);
             tempNum = Double.parseDouble(data);
             
             screenTemp = String.valueOf(tempNum * 0.9);
@@ -1619,7 +1620,7 @@ public class MainFrame extends javax.swing.JFrame {
        
         if("deg".equals(angel)) {
             screenTemp = resultField.getText();
-            String data = screenTemp.substring(0, screenTemp.length()-1);
+            String data = screenTemp.substring(0, screenTemp.length()-3);
             tempNum = Double.parseDouble(data);
             
             screenTemp = String.valueOf(tempNum * 3.14 / 180);
@@ -1647,6 +1648,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         } else if ("rad".equals(angel)) {
             screenTemp = resultField.getText();
+            String data = screenTemp.substring(0, screenTemp.length()-3);
             tempNum = Double.parseDouble(screenTemp);
             
             screenTemp = String.valueOf(tempNum * 200 / 3.14);
