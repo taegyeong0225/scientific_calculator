@@ -1,4 +1,8 @@
 
+import java.awt.event.KeyEvent;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -19,6 +23,8 @@ public class MainFrame extends javax.swing.JFrame {
     String strMemory = "";
     String angel = ""; // 각도 기호를 담을 변수
     
+    
+    
     /**
      * Creates new form MainFrame
      */
@@ -38,6 +44,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         buttonGroup2 = new javax.swing.ButtonGroup();
         mathGroup = new javax.swing.ButtonGroup();
+        frmInformation = new javax.swing.JFrame();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listNumber = new javax.swing.JList<>();
+        btnRet = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        btnCD = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         rbtnHex = new javax.swing.JRadioButton();
         rbtnDec = new javax.swing.JRadioButton();
         rbtnOct = new javax.swing.JRadioButton();
@@ -104,8 +117,68 @@ public class MainFrame extends javax.swing.JFrame {
         btnAve = new javax.swing.JButton();
         btnInt = new javax.swing.JButton();
         btnResult = new javax.swing.JButton();
-        cboxLnv = new javax.swing.JCheckBox();
+        cboxInv = new javax.swing.JCheckBox();
         cboxHyp = new javax.swing.JCheckBox();
+
+        frmInformation.setTitle("sta (통계버튼)");
+        frmInformation.setPreferredSize(new java.awt.Dimension(395, 276));
+
+        listNumber.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "1", "2", "3" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(listNumber);
+
+        btnRet.setText("RET(R)");
+        btnRet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("LOAD(L)");
+
+        btnCD.setText("CD(C)");
+        btnCD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("CAD(A)");
+
+        javax.swing.GroupLayout frmInformationLayout = new javax.swing.GroupLayout(frmInformation.getContentPane());
+        frmInformation.getContentPane().setLayout(frmInformationLayout);
+        frmInformationLayout.setHorizontalGroup(
+            frmInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frmInformationLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(frmInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addGroup(frmInformationLayout.createSequentialGroup()
+                        .addComponent(btnRet)
+                        .addGap(12, 12, 12)
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCD)
+                        .addGap(12, 12, 12)
+                        .addComponent(jButton4)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        frmInformationLayout.setVerticalGroup(
+            frmInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frmInformationLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(frmInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRet)
+                    .addComponent(jButton2)
+                    .addComponent(btnCD)
+                    .addComponent(jButton4))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -120,6 +193,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         buttonGroup2.add(rbtnDec);
+        rbtnDec.setSelected(true);
         rbtnDec.setText("Dec");
         rbtnDec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +233,11 @@ public class MainFrame extends javax.swing.JFrame {
                 resultFieldActionPerformed(evt);
             }
         });
+        resultField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultFieldKeyTyped(evt);
+            }
+        });
 
         btnC.setBackground(new java.awt.Color(235, 233, 230));
         btnC.setForeground(new java.awt.Color(255, 0, 51));
@@ -179,6 +258,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         mathGroup.add(rbtnDegrees);
+        rbtnDegrees.setSelected(true);
         rbtnDegrees.setText("Degrees");
         rbtnDegrees.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,6 +490,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnD.setForeground(new java.awt.Color(153, 153, 153));
         btnD.setText("D");
+        btnD.setEnabled(false);
         btnD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDActionPerformed(evt);
@@ -418,6 +499,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnF.setForeground(new java.awt.Color(153, 153, 153));
         btnF.setText("F");
+        btnF.setEnabled(false);
         btnF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFActionPerformed(evt);
@@ -426,6 +508,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnE.setForeground(new java.awt.Color(153, 153, 153));
         btnE.setText("E");
+        btnE.setEnabled(false);
         btnE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEActionPerformed(evt);
@@ -434,6 +517,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnA.setForeground(new java.awt.Color(153, 153, 153));
         btnA.setText("A");
+        btnA.setEnabled(false);
         btnA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAActionPerformed(evt);
@@ -442,6 +526,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnC_.setForeground(new java.awt.Color(153, 153, 153));
         btnC_.setText("C");
+        btnC_.setEnabled(false);
         btnC_.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnC_ActionPerformed(evt);
@@ -450,6 +535,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnB.setForeground(new java.awt.Color(153, 153, 153));
         btnB.setText("B");
+        btnB.setEnabled(false);
         btnB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBActionPerformed(evt);
@@ -637,32 +723,36 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnDat.setForeground(new java.awt.Color(153, 153, 153));
+        btnDat.setBackground(new java.awt.Color(235, 233, 230));
         btnDat.setText("Dat");
+        btnDat.setEnabled(false);
         btnDat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDatActionPerformed(evt);
             }
         });
 
-        btnS.setForeground(new java.awt.Color(153, 153, 153));
+        btnS.setBackground(new java.awt.Color(235, 233, 230));
         btnS.setText("s");
+        btnS.setEnabled(false);
         btnS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSActionPerformed(evt);
             }
         });
 
-        btnSum.setForeground(new java.awt.Color(153, 153, 153));
+        btnSum.setBackground(new java.awt.Color(235, 233, 230));
         btnSum.setText("Sum");
+        btnSum.setEnabled(false);
         btnSum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSumActionPerformed(evt);
             }
         });
 
-        btnAve.setForeground(new java.awt.Color(153, 153, 153));
+        btnAve.setBackground(new java.awt.Color(235, 233, 230));
         btnAve.setText("Ave");
+        btnAve.setEnabled(false);
         btnAve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAveActionPerformed(evt);
@@ -687,9 +777,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        cboxLnv.setText("Inv");
+        cboxInv.setText("Inv");
+        cboxInv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxInvActionPerformed(evt);
+            }
+        });
 
         cboxHyp.setText("Hyp");
+        cboxHyp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxHypActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -760,7 +860,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(rbtnBin, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cboxLnv, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cboxInv, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cboxHyp)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
@@ -867,7 +967,7 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(rbtnDec))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(cboxLnv)
+                                    .addComponent(cboxInv)
                                     .addComponent(cboxHyp)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1011,8 +1111,16 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackspaceActionPerformed
 
     private void btnStaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaActionPerformed
-      // Sta : 현재 계산 결과를 저장, 다른 계산을 이어서 수행할 수 있도록 함
-
+      // Sta
+        frmInformation.setLocation(500, 400);
+        frmInformation.setSize(500, 400);
+        frmInformation.setVisible(true);
+        
+        btnAve.setEnabled(true);
+        btnSum.setEnabled(true);
+        btnS.setEnabled(true);
+        btnDat.setEnabled(true);
+        
     }//GEN-LAST:event_btnStaActionPerformed
 
     private void btnPMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPMActionPerformed
@@ -1131,7 +1239,7 @@ public class MainFrame extends javax.swing.JFrame {
         if(calResult == 0) 
             calResult = tempNum;
         else
-            if(cboxLnv.isSelected())
+            if(cboxInv.isSelected())
                 calResult = (int)tempNum >> (int)calResult;
             else
                 calResult = (int)tempNum << (int)calResult;
@@ -1152,7 +1260,8 @@ public class MainFrame extends javax.swing.JFrame {
         else 
             calResult = (int)tempNum ^ (int) calResult;
  
-        resultField.setText(String.valueOf(calResult));
+        screenTemp = String.valueOf(calResult);
+        resultField.setText(screenTemp);
         
         tempNum = 0;
         screenTemp = "";
@@ -1287,9 +1396,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnX3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnX3ActionPerformed
         
-        // screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
-        if(calResult!= 0)  calResult = Math.pow(calResult, 3);
+        if(calResult!= 0) {
+            if (cboxInv.isSelected()) calResult = Math.cbrt(calResult);
+            else calResult = Math.pow(calResult, 3);
+        }
         resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnX3ActionPerformed
 
@@ -1297,11 +1408,13 @@ public class MainFrame extends javax.swing.JFrame {
      
         calResult = Double.parseDouble(screenTemp);
               
-        if(calResult!=0) {
-            if(cboxHyp.isSelected())
-                calResult = (Math.exp(calResult) + Math.exp(-calResult)) / 2.0;
+        if(calResult!=0){ 
+            if(cboxHyp.isSelected()) {
+                if(cboxInv.isSelected()) calResult=Math.log(calResult+Math.sqrt(calResult * calResult - 1));
+                else calResult = Math.cosh(Math.toRadians(calResult)); }
             else
-                calResult = Math.cos(Math.toRadians(calResult));
+                if(cboxInv.isSelected()) calResult = Math.acos(Math.toRadians(calResult));
+                else calResult = Math.cos(Math.toRadians(calResult)); 
         }
         resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnCosActionPerformed
@@ -1311,10 +1424,12 @@ public class MainFrame extends javax.swing.JFrame {
         calResult = Double.parseDouble(screenTemp);
         
         if(calResult!=0){ 
-            if(cboxHyp.isSelected())
-                calResult = (Math.exp(calResult) - Math.exp(-calResult)) / 2.0;
+            if(cboxHyp.isSelected()) {
+                if(cboxInv.isSelected()) calResult=Math.log(calResult+Math.sqrt(calResult * calResult + 1));
+                else calResult = Math.sinh(Math.toRadians(calResult)); }
             else
-                calResult = Math.sin(Math.toRadians(calResult));
+                if(cboxInv.isSelected()) calResult = Math.asin(Math.toRadians(calResult));
+                else calResult = Math.sin(Math.toRadians(calResult)); 
         }
         resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnSinActionPerformed
@@ -1324,16 +1439,20 @@ public class MainFrame extends javax.swing.JFrame {
         screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
         if(calResult!=0) {
-            calResult = Math.log10(calResult);
-            resultField.setText(Double.toString(calResult));
+            if (cboxInv.isSelected()) calResult = Math.exp(calResult);
+            else calResult = Math.log10(calResult);
         }
+            resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnLogActionPerformed
 
     private void btnXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXActionPerformed
         // x^y : 거듭제곱
         // screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
-        // if(calResult!= 0)  calResult = Math.pow(calResult, tempNum);
+        if(calResult!= 0) {
+            if (cboxInv.isSelected()) calResult = Math.pow(calResult, 1.0/tempNum);
+            else calResult = Math.pow(calResult, tempNum);
+        }
         resultField.setText(Double.toString(calResult));
         
         tempNum = 0; // 현재 숫자 초기화
@@ -1346,9 +1465,10 @@ public class MainFrame extends javax.swing.JFrame {
         screenTemp = resultField.getText();
         calResult = Double.parseDouble(screenTemp);
         if(calResult!=0) {
-            calResult = Math.log(calResult);
-            resultField.setText(Double.toString(calResult));
+            if (cboxInv.isSelected()) calResult = Math.exp(calResult);
+            else calResult = Math.log(calResult);
         }
+        resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnLnActionPerformed
 
     private void btnExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpActionPerformed
@@ -1442,10 +1562,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btn1xActionPerformed
 
     private void btnX2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnX2ActionPerformed
-        
-        // screenTemp = resultField.getText();
+       
         calResult = Double.parseDouble(screenTemp);
-        if(calResult!= 0)  calResult = Math.pow(calResult, 2);
+        if(calResult!= 0)  {
+            if (cboxInv.isSelected()) calResult = Math.sqrt(calResult * calResult);
+            else calResult = Math.pow(calResult, 2);
+        }
         resultField.setText(Double.toString(calResult));
     }//GEN-LAST:event_btnX2ActionPerformed
 
@@ -1482,19 +1604,107 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMRActionPerformed
 
     private void btnDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatActionPerformed
-        // TODO add your handling code here:
+        // 리스트에 내용 추가
+        Vector myVC = new Vector(); // 벡터 생성
+        int iListSize = 0;
+        
+        iListSize = listNumber.getModel().getSize();                    // 리스트 사이즈 저장
+        for(int idx = 0; idx < iListSize; idx++)
+            myVC.addElement(listNumber.getModel().getElementAt(idx));   // 벡터 복사
+        myVC.addElement(resultField.getText());                            // 리스트에 입력값 추가
+        listNumber.setListData(myVC);                                   // 벡터값 설정
+        resultField.setText(null);    
     }//GEN-LAST:event_btnDatActionPerformed
 
     private void btnSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSActionPerformed
-        // TODO add your handling code here:
+        double sum = 0;
+        double mean = 0;
+        double sumOfSquaredDifferences = 0;
+        
+        int iListSize = 0;
+        iListSize = listNumber.getModel().getSize(); 
+
+        if (2 <= iListSize) {
+            resultField.setText(Double.toString(sum));
+        } else {
+            JOptionPane.showMessageDialog(null, "통계 상자에 수가 없습니다.", "계산 불가", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // 1. 평균 계산
+        for (int i = 0; i < iListSize; i++) {
+            try {
+                int number = Integer.parseInt(listNumber.getModel().getElementAt(i));
+                sum += number;
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "계산이 불가합니다.", "계산 불가", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
+        mean = sum / iListSize;
+        
+        // 2. 각 데이터 포인트와 평균 사이의 편차 및 3. 편차의 제곱 계산
+        for (int i = 0; i < iListSize; i++) {
+            try {
+                double number = Double.parseDouble(listNumber.getModel().getElementAt(i));
+                double difference = number - mean;
+                double squaredDifference = difference * difference;
+                sumOfSquaredDifferences += squaredDifference;
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "숫자를 입력하세요.", "오류", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
+        double variance = sumOfSquaredDifferences / (iListSize - 1);
+        double standardDeviaration = Math.sqrt(variance);
+        screenTemp = Double.toString(standardDeviaration);
+
+        resultField.setText(screenTemp);
     }//GEN-LAST:event_btnSActionPerformed
 
     private void btnSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumActionPerformed
-        // TODO add your handling code here:
+        int sum = 0;
+        int iListSize = 0;
+        iListSize = listNumber.getModel().getSize(); 
+
+        for (int i = 0; i < iListSize; i++) {
+        try {
+            int number = Integer.parseInt(listNumber.getModel().getElementAt(i));
+            sum += number;
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "계산이 불가합니다.", "계산 불가", JOptionPane.ERROR_MESSAGE);
+        }
+            }
+
+        if (iListSize > 0) {
+            resultField.setText(Double.toString(sum));
+        } else {
+            JOptionPane.showMessageDialog(null, "통계 상자에 수가 없습니다.", "계산 불가", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnSumActionPerformed
 
     private void btnAveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAveActionPerformed
-        // TODO add your handling code here:
+        int sum = 0;
+        int iListSize = 0;
+        iListSize = listNumber.getModel().getSize(); 
+
+        for (int i = 0; i < iListSize; i++) {
+        try {
+            int number = Integer.parseInt(listNumber.getModel().getElementAt(i));
+            sum += number;
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "계산이 불가합니다.", "계산 불가", JOptionPane.ERROR_MESSAGE);
+        }
+            }
+
+        if (iListSize > 0) {
+            double average = (double) sum / iListSize;
+                resultField.setText(Double.toString(average));
+        } else {
+            JOptionPane.showMessageDialog(null, "통계 상자에 수가 없습니다.", "계산 불가", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAveActionPerformed
 
     private void btnIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntActionPerformed
@@ -1553,6 +1763,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         screenTemp = Double.toString(calResult);
         resultField.setText(screenTemp);
+        
     }//GEN-LAST:event_rbtnDecActionPerformed
 
     private void rbtnHexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnHexActionPerformed
@@ -1659,6 +1870,46 @@ public class MainFrame extends javax.swing.JFrame {
         angel = "grad";
     }//GEN-LAST:event_rbtnGradsActionPerformed
 
+    private void cboxInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxInvActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxInvActionPerformed
+
+    private void cboxHypActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxHypActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxHypActionPerformed
+
+    private void btnRetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetActionPerformed
+        // 포커스가 메인 프레임으로 이동함
+        // JFrame.setVisible(true);
+//        frmInformation.setVisible(false);
+//        frmInformation.setVisible(true);
+           this.toFront();
+           this.requestFocus();
+    }//GEN-LAST:event_btnRetActionPerformed
+
+    private void btnCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDActionPerformed
+        
+    }//GEN-LAST:event_btnCDActionPerformed
+
+    private void resultFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultFieldKeyTyped
+        // sta가 활성화 되어 있고 ins가 입력되면 통계상자에 숫자 추가 10/28
+        // if (frmInformation.isVisible()) {
+            if (evt.getKeyChar() == KeyEvent.VK_INSERT) {
+                screenTemp = resultField.getText();
+                tempNum = Double.parseDouble(screenTemp);
+                
+                Vector myVC = new Vector(); // 벡터 생성
+                int iListSize = 0;
+        
+                iListSize = listNumber.getModel().getSize();                    // 리스트 사이즈 저장
+                for(int idx = 0; idx < iListSize; idx++)
+                    myVC.addElement(listNumber.getModel().getElementAt(idx));   // 벡터 복사
+                myVC.addElement(tempNum + evt.getKeyChar());                                       // 리스트에 입력값 추가
+                listNumber.setListData(myVC);                                   // 벡터값 설정
+                resultField.setText(null);  
+            }
+    }//GEN-LAST:event_resultFieldKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -1685,7 +1936,6 @@ public class MainFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1712,6 +1962,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnB;
     private javax.swing.JButton btnBackspace;
     private javax.swing.JButton btnC;
+    private javax.swing.JButton btnCD;
     private javax.swing.JButton btnCE;
     private javax.swing.JButton btnC_;
     private javax.swing.JButton btnComma;
@@ -1744,6 +1995,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnPlus;
     private javax.swing.JRadioButton btnRadians;
     private javax.swing.JButton btnResult;
+    private javax.swing.JButton btnRet;
     private javax.swing.JButton btnRight;
     private javax.swing.JButton btnS;
     private javax.swing.JButton btnSin;
@@ -1756,7 +2008,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnXor;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JCheckBox cboxHyp;
-    private javax.swing.JCheckBox cboxLnv;
+    private javax.swing.JCheckBox cboxInv;
+    private javax.swing.JFrame frmInformation;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listNumber;
     private javax.swing.ButtonGroup mathGroup;
     private javax.swing.JRadioButton rbtnBin;
     private javax.swing.JRadioButton rbtnDec;
