@@ -1,8 +1,6 @@
 
 import java.awt.event.KeyEvent;
 import java.util.Vector;
-import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -138,6 +136,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton2.setText("LOAD(L)");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         btnCD.setText("CD(C)");
         btnCD.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +150,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton4.setText("CAD(A)");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout frmInformationLayout = new javax.swing.GroupLayout(frmInformation.getContentPane());
         frmInformation.getContentPane().setLayout(frmInformationLayout);
@@ -1888,7 +1896,18 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRetActionPerformed
 
     private void btnCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDActionPerformed
+        // 리스트 내용 삭제
+        Vector myVC = new Vector(); // 벡터 생성
+        int iListSize = 0;
+        int iListIndex = 0; // 삭제할 리스트 인댁스
         
+        iListSize = listNumber.getModel().getSize();                    // 리스트 사이즈 저장
+        for(int idx = 0; idx < iListSize; idx++)
+            myVC.addElement(listNumber.getModel().getElementAt(idx));   // 벡터 복사
+        
+        iListIndex = listNumber.getSelectedIndex();
+        myVC.removeElementAt(iListIndex);                            // 리스트에 입력값 추가
+        listNumber.setListData(myVC);                                   // 벡터값 설정     
     }//GEN-LAST:event_btnCDActionPerformed
 
     private void resultFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultFieldKeyTyped
@@ -1909,6 +1928,22 @@ public class MainFrame extends javax.swing.JFrame {
                 resultField.setText(null);  
             }
     }//GEN-LAST:event_resultFieldKeyTyped
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Vector myVC = new Vector(); // 벡터 생성    
+        int iListSize = 0;
+
+        iListSize = listNumber.getModel().getSize(); // 리스트 사이즈 저장
+        for (int idx = 0; idx < iListSize; idx++)
+        myVC.addElement(listNumber.getModel().getElementAt(idx)); // 벡터 복사
+
+        myVC.removeAllElements(); // 모든 요소를 삭제
+        listNumber.setListData(myVC); // 벡터값 설정
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
