@@ -21,7 +21,7 @@ public class MainFrame extends javax.swing.JFrame {
     String strMemory = "";
     String angel = ""; // 각도 기호를 담을 변수
     
-    
+    Double mPlusResult = 0.0;
     
     /**
      * Creates new form MainFrame
@@ -49,6 +49,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         btnCD = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        lblCount = new javax.swing.JLabel();
         rbtnHex = new javax.swing.JRadioButton();
         rbtnDec = new javax.swing.JRadioButton();
         rbtnOct = new javax.swing.JRadioButton();
@@ -118,14 +119,9 @@ public class MainFrame extends javax.swing.JFrame {
         cboxInv = new javax.swing.JCheckBox();
         cboxHyp = new javax.swing.JCheckBox();
 
-        frmInformation.setTitle("sta (통계버튼)");
+        frmInformation.setTitle("통계상자");
         frmInformation.setPreferredSize(new java.awt.Dimension(395, 276));
 
-        listNumber.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "1", "2", "3" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(listNumber);
 
         btnRet.setText("RET(R)");
@@ -156,6 +152,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        lblCount.setText("n=0");
+
         javax.swing.GroupLayout frmInformationLayout = new javax.swing.GroupLayout(frmInformation.getContentPane());
         frmInformation.getContentPane().setLayout(frmInformationLayout);
         frmInformationLayout.setHorizontalGroup(
@@ -173,6 +171,10 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(jButton4)))
                 .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, frmInformationLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCount)
+                .addGap(186, 186, 186))
         );
         frmInformationLayout.setVerticalGroup(
             frmInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +187,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(btnCD)
                     .addComponent(jButton4))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(lblCount)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1581,12 +1585,40 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnMPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMPActionPerformed
         // M+ : 저장된 메모리에 현재 값을 더함
-        tempNum = Double.valueOf(screenTemp);
-        Double mPlusResult = tempNum + Double.valueOf(strMemory);
         
-        // 더한 값을 strMemory에 저장
-        strMemory = String.valueOf(mPlusResult);
-        resultField.setText(strMemory);
+        tempNum = Double.valueOf(screenTemp); // 현재 화면에 뜬 수
+        
+        if (!strOperator.equals("")) {
+        // 첫번째 피연산자(calResult)와 두 번째 피연산자 (tempNum)과의 연산
+            switch (strOperator) {
+                case "+" -> calResult += tempNum;
+                case "-" -> calResult -= tempNum;
+                case "*" -> calResult *= tempNum;
+                case "/" -> calResult /= tempNum;
+                case "%" -> calResult %= tempNum;
+                case "^" -> calResult = (int)tempNum ^ (int)calResult;  
+                case "&" -> calResult = (int)tempNum & (int)calResult;  
+                case "|" -> calResult = (int)tempNum | (int)calResult; 
+                case "<" -> calResult = (int)tempNum << (int)calResult;  
+                case "x^y" -> calResult = Math.pow(calResult, tempNum);
+                default -> {
+                }   
+            }
+            if (!strMemory.equals(""))
+                mPlusResult = calResult + Double.valueOf(strMemory);
+            else 
+                mPlusResult = calResult;
+        } else {
+            // 누른 연산자 없을 떄는 화면에 있는걸 저장
+            if (!strMemory.equals(""))
+                mPlusResult = tempNum + Double.valueOf(strMemory);
+            else 
+                mPlusResult = tempNum;
+        }
+        
+        strMemory = Double.toString(mPlusResult);
+        screenTemp = "";
+        strOperator = "";
     }//GEN-LAST:event_btnMPActionPerformed
 
     private void btnPiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPiActionPerformed
@@ -1602,13 +1634,16 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMCActionPerformed
         // MC : memory clear 저장된 메모리 삭제
         strMemory = "";
-        resultField.setText(strMemory);
+        
+        
+        screenTemp = "";
+        resultField.setText(screenTemp);
     }//GEN-LAST:event_btnMCActionPerformed
 
     private void btnMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRActionPerformed
         // MR : memory read 저장된 메모리 읽어옴 
-        resultField.setText(strMemory);
         screenTemp = strMemory;
+        resultField.setText(screenTemp); 
     }//GEN-LAST:event_btnMRActionPerformed
 
     private void btnDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatActionPerformed
@@ -1622,6 +1657,8 @@ public class MainFrame extends javax.swing.JFrame {
         myVC.addElement(resultField.getText());                            // 리스트에 입력값 추가
         listNumber.setListData(myVC);                                   // 벡터값 설정
         resultField.setText(null);    
+        
+        lblCount.setText("n="+Integer.toString(iListSize+1));
     }//GEN-LAST:event_btnDatActionPerformed
 
     private void btnSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSActionPerformed
@@ -1730,28 +1767,30 @@ public class MainFrame extends javax.swing.JFrame {
         // 화면에 있는 두 번째 피연산자를 실수형으로 저장
         tempNum = Double.valueOf(screenTemp);
         
-        // 첫번째 피연산자(calResult)와 두 번째 피연산자 (tempNum)과의 연산
-        switch (strOperator) {
-            case "+" -> calResult += tempNum;
-            case "-" -> calResult -= tempNum;
-            case "*" -> calResult *= tempNum;
-            case "/" -> calResult /= tempNum;
-            case "%" -> calResult %= tempNum; // Mod
-            case "^" -> calResult = (int)tempNum ^ (int)calResult; // Xor
-            case "&" -> calResult = (int)tempNum & (int)calResult; // And
-            case "|" -> calResult = (int)tempNum | (int)calResult; // Or
-            case "<" -> calResult = (int)tempNum << (int)calResult; // Lsh
-            case "x^y" -> calResult = Math.pow(calResult, tempNum);
-            default -> {
-            }
-            
-        }
+        if (!strOperator.equals("")) {
+            // 첫번째 피연산자(calResult)와 두 번째 피연산자 (tempNum)과의 연산
+            switch (strOperator) {
+                case "+" -> calResult += tempNum;
+                case "-" -> calResult -= tempNum;
+                case "*" -> calResult *= tempNum;
+                case "/" -> calResult /= tempNum;
+                case "%" -> calResult %= tempNum; // Mod
+                case "^" -> calResult = (int)tempNum ^ (int)calResult; // Xor
+                case "&" -> calResult = (int)tempNum & (int)calResult; // And
+                case "|" -> calResult = (int)tempNum | (int)calResult; // Or
+                case "<" -> calResult = (int)tempNum << (int)calResult; // Lsh
+                case "x^y" -> calResult = Math.pow(calResult, tempNum);
+                default -> {
+                }            }
+            // 연산 결과 저장
+            strResult = String.valueOf(calResult);
+        } else { strResult =  String.valueOf(tempNum); }
         
-        // 연산 결과 저장
-        strResult = String.valueOf(calResult);
+        
         
         // 연산 결과 출력
         resultField.setText(strResult);
+        screenTemp = "";
         // 연산 기호 초기화
         strOperator = "";
     }//GEN-LAST:event_btnResultActionPerformed
@@ -1879,7 +1918,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_rbtnGradsActionPerformed
 
     private void cboxInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxInvActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_cboxInvActionPerformed
 
     private void cboxHypActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxHypActionPerformed
@@ -2048,6 +2087,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCount;
     private javax.swing.JList<String> listNumber;
     private javax.swing.ButtonGroup mathGroup;
     private javax.swing.JRadioButton rbtnBin;
